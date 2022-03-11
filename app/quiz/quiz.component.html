@@ -1,0 +1,48 @@
+<app-navbarcandidate></app-navbarcandidate>
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">Pass Your Tests</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Masthead Subheading-->
+        <p class="masthead-subheading font-weight-light mb-0">Full stack developer - Web Designer - Cloud engineer - cyber security</p>
+    </div>
+</header>
+<br><br>
+
+
+
+
+<div class="card" >
+    <div class="card-header">
+      Question 1
+    </div>
+    <div class="card-body" class="text-center" >
+      
+      <h5 class="card-title">{{ quizzes[currentQuiz].question }}</h5>
+      
+      <div class="form-check">
+        
+        <ul class="list-groupe" *ngFor="let quiz of quizzes[currentQuiz].answer">
+          <label class="form-check-label" for="flexRadioDefault1">
+        <input class="form-check-input" type="radio" (change)="onAnswer(quiz.correct)" [disabled]="answerSelected" class="text-center" >
+        {{ quiz.option }}
+        
+          
+        </label>
+      </ul>
+      <button class=" btn btn-success btn-block" (click)="showResult()"> Result </button>
+      <div *ngIf="result"> Correct Answers : {{ correctAnswers }} | Incorrect Answers : {{incorrectAnswers}}</div>
+      <br><br>
+   <p class="text-center">{{ currentQuiz +1}} of {{ quizzes.length }}</p>
+  </div>
+  <br><br>
+  <br><br>
+  <app-footer></app-footer>
